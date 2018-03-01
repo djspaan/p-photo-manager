@@ -8,11 +8,11 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
+      declarations: [ DashboardComponent ],
       imports: [
         RouterTestingModule.withRoutes([
           {path: 'test', component: DashboardComponent}
-        ]),
+        ])
       ]
     })
       .compileComponents();

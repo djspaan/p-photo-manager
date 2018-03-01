@@ -9,8 +9,8 @@ describe('PhotoOverviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PhotoOverviewComponent],
-      providers: [PhotoService]
+      declarations: [ PhotoOverviewComponent ],
+      providers: [ PhotoService ]
     }).compileComponents();
   }));
 

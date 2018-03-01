@@ -16,9 +16,9 @@ export class AlbumService implements Searchable {
 
   initializeAlbums(): void {
     this.albums = [
-      new Album(1, 'Lloret de Mar', 'Vakantie in Lloret', this.photoService.getByIds([1, 2, 3])),
-      new Album(2, 'Alanya', 'Vakantie in Alanya', this.photoService.getByIds([4, 5, 6])),
-      new Album(3, 'Lloret de Mar', 'Vakantie in Lloret', this.photoService.getByIds([7, 8, 9]))
+      new Album(1, 'Lloret de Mar', 'Vakantie in Lloret', this.photoService.getByIds([ 1, 2, 3 ])),
+      new Album(2, 'Alanya', 'Vakantie in Alanya', this.photoService.getByIds([ 4, 5, 6 ])),
+      new Album(3, 'Lloret de Mar', 'Vakantie in Lloret', this.photoService.getByIds([ 7, 8, 9 ]))
     ];
     this.albumsChanged.next(this.albums);
   }

@@ -7,7 +7,7 @@ import { PhotoService } from '../../shared/photo.service';
 @Component({
   selector: 'pm-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: [ './overview.component.scss' ]
 })
 export class PhotoOverviewComponent implements OnInit {
   private subscription: Subscription;

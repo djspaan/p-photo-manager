@@ -6,11 +6,11 @@ import { PhotoService } from './photo.service';
 describe('AlbumService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AlbumService, PhotoService]
+      providers: [ AlbumService, PhotoService ]
     });
   });
 
-  it('should be created', inject([AlbumService], (service: AlbumService) => {
+  it('should be created', inject([ AlbumService ], (service: AlbumService) => {
     expect(service).toBeTruthy();
   }));
 });

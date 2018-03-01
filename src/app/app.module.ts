@@ -11,7 +11,7 @@ import { PhotoOverviewComponent } from './photos/overview/overview.component';
 import { AlbumService } from './shared/album.service';
 import { PhotoService } from './shared/photo.service';
 import { SearchComponent } from './header/search/search.component';
-import { CreatePhotoComponent } from './photos/create-photo/create-photo.component';
+import { EditPhotoComponent } from './photos/edit-photo/edit-photo.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,9 @@ import { CreatePhotoComponent } from './photos/create-photo/create-photo.compone
     AlbumOverviewComponent,
     PhotoOverviewComponent,
     SearchComponent,
-    CreatePhotoComponent
+    EditPhotoComponent
   ],
+  entryComponents: [ EditPhotoComponent ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -34,7 +35,7 @@ import { CreatePhotoComponent } from './photos/create-photo/create-photo.compone
     AlbumService,
     PhotoService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

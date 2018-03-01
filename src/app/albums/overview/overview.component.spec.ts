@@ -11,9 +11,9 @@ describe('AlbumOverviewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AlbumOverviewComponent ],
-      providers: [AlbumService, PhotoService]
+      providers: [ AlbumService, PhotoService ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

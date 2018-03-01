@@ -11,12 +11,13 @@ const routes: Routes = [
   {path: 'albums', redirectTo: 'albums/overview', pathMatch: 'full'},
   {path: 'albums/overview', component: AlbumOverviewComponent},
   {path: 'photos', redirectTo: 'photos/overview', pathMatch: 'full'},
-  {path: 'photos/overview', component: PhotoOverviewComponent},
+  {path: 'photos/overview', component: PhotoOverviewComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

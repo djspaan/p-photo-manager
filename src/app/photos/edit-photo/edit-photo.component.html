@@ -1,0 +1,41 @@
+<form [formGroup]="editPhotoForm" (ngSubmit)="submitForm()">
+  <div class="modal-header">
+    <h4 class="modal-title">Upload a new photo</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h5>Preview:</h5>
+    <div class="row">
+      <div class="col" align="center">
+        <div class="card">
+          <img class="card-img-top"
+               [src]="location.value || 'https://cdn.evance.me/portal/shared/images/placeholder.png?v=1458820995'"
+               alt="Thumbnail">
+          <div class="card-body">
+            <h5 class="card-title">{{ title.value || 'Title' }}</h5>
+            <p class="card-text">{{ description.value || 'This is where the description comes!' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" class="form-control" formControlName="title" #title>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" id="description" class="form-control" formControlName="description" #description>
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" class="form-control" formControlName="location" #location>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Cancel</button>
+    <button class="btn btn-outline-primary" [disabled]="!editPhotoForm.valid">Submit</button>
+  </div>
+</form>
+

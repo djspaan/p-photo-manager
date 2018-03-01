@@ -6,7 +6,7 @@ import { PhotoService } from '../../shared/photo.service';
 @Component({
   selector: 'pm-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: [ './search.component.scss' ]
 })
 export class SearchComponent implements OnInit {
   @ViewChild('searchInput') private searchInput: ElementRef;
@@ -20,9 +20,11 @@ export class SearchComponent implements OnInit {
 
     switch (this.router.url) {
       case '/albums/overview':
-        this.albumService.search(query); break;
+        this.albumService.search(query);
+        break;
       case '/photos/overview':
-        this.photoService.search(query); break;
+        this.photoService.search(query);
+        break;
       default:
         return;
     }
