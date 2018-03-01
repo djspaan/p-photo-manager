@@ -1,0 +1,31 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="modal-header">
+      <h4 class="modal-title">Upload a new photo</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" id="description" class="form-control" formControlName="description">
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" class="form-control" formControlName="location">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+      <button class="btn btn-outline-primary">Submit</button>
+    </div>
+  </form>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="openModal(content)">+ Add</button>
+
