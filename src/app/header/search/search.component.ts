@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlbumService } from '../../shared/album.service';
-import { PhotoService } from '../../shared/photo.service';
+import { AlbumService } from '../../shared/albums/album.service';
+import { PhotoService } from '../../shared/photos/photo.service';
 
 @Component({
   selector: 'pm-search',

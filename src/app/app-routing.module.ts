@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AlbumOverviewComponent } from './albums/overview/overview.component';
-import { PhotoOverviewComponent } from './photos/overview/overview.component';
+import { AlbumOverviewComponent } from './albums/album-overview/album-overview.component';
+import { PhotoOverviewComponent } from './photos/photo-overview/photo-overview.component';
 
 // TODO: split these into the different modules
 const routes: Routes = [

@@ -2,16 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { PhotoService } from '../../shared/photo.service';
-import { EditPhotoComponent } from './edit-photo.component';
+import { PhotoService } from '../../shared/photos/photo.service';
+import { PhotoEditComponent } from './photo-edit.component';
 
-describe('EditPhotoComponent', () => {
-  let component: EditPhotoComponent;
-  let fixture: ComponentFixture<EditPhotoComponent>;
+describe('PhotoEditComponent', () => {
+  let component: PhotoEditComponent;
+  let fixture: ComponentFixture<PhotoEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditPhotoComponent ],
+      declarations: [ PhotoEditComponent ],
       imports: [ FormsModule, ReactiveFormsModule ],
       providers: [ NgbActiveModal, PhotoService ]
     })
@@ -19,7 +19,7 @@ describe('EditPhotoComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditPhotoComponent);
+    fixture = TestBed.createComponent(PhotoEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

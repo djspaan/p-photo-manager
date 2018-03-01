@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AlbumService } from './album.service';
-import { PhotoService } from './photo.service';
+import { PhotoService } from '../photos/photo.service';
 
 describe('AlbumService', () => {
   beforeEach(() => {

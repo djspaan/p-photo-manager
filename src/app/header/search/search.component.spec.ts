@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AlbumService } from '../../shared/album.service';
-import { PhotoService } from '../../shared/photo.service';
+import { AlbumService } from '../../shared/albums/album.service';
+import { PhotoService } from '../../shared/photos/photo.service';
 
 import { SearchComponent } from './search.component';
 

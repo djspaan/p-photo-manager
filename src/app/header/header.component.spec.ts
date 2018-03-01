@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
-import { AlbumService } from '../shared/album.service';
-import { PhotoService } from '../shared/photo.service';
+
+import { AlbumService } from '../shared/albums/album.service';
+import { PhotoService } from '../shared/photos/photo.service';
 
 import { HeaderComponent } from './header.component';
 import { SearchComponent } from './search/search.component';

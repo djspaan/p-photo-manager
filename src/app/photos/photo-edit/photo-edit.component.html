@@ -1,4 +1,4 @@
-<form [formGroup]="editPhotoForm" (ngSubmit)="submitForm()">
+<form [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="modal-header">
     <h4 class="modal-title">{{ this.photo ? 'Edit ' + this.photo.title : 'Add a new photo' }}</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
@@ -35,7 +35,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Cancel</button>
-    <button class="btn btn-outline-primary" [disabled]="!editPhotoForm.valid">Submit</button>
+    <button class="btn btn-outline-primary" [disabled]="!form.valid">Submit</button>
   </div>
 </form>
 

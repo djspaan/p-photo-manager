@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { Album } from './album';
-import { PhotoService } from './photo.service';
-import { Searchable } from './searchable';
+import { PhotoService } from '../photos/photo.service';
+import { Searchable } from '../searchable';
 
 @Injectable()
 export class AlbumService implements Searchable {

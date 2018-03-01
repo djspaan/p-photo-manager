@@ -1,4 +1,4 @@
-import { Photo } from './photo';
+import { Photo } from '../photos/photo';
 
 export class Album {
   public id: number;

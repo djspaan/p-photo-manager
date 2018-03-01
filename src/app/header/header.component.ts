@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { EditPhotoComponent } from '../photos/edit-photo/edit-photo.component';
+import { PhotoEditComponent } from '../photos/photo-edit/photo-edit.component';
 
 @Component({
   selector: 'pm-header',
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() { }
 
   public openCreatePhotoModal() {
-    this.modal = this.modalService.open(EditPhotoComponent);
+    this.modal = this.modalService.open(PhotoEditComponent);
   }
 
 }

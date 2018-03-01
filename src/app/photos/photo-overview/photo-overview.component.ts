@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
-import { Photo } from '../../shared/photo';
-import { PhotoService } from '../../shared/photo.service';
-import { EditPhotoComponent } from '../edit-photo/edit-photo.component';
+import { Photo } from '../../shared/photos/photo';
+import { PhotoService } from '../../shared/photos/photo.service';
+import { PhotoEditComponent } from '../photo-edit/photo-edit.component';
 
 @Component({
   selector: 'pm-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: [ './overview.component.scss' ]
+  templateUrl: './photo-overview.component.html',
+  styleUrls: [ './photo-overview.component.scss' ]
 })
 export class PhotoOverviewComponent implements OnInit {
   private modal: NgbModalRef;
@@ -25,7 +25,7 @@ export class PhotoOverviewComponent implements OnInit {
   }
 
   public openEditPhotoModal(photo: Photo) {
-    this.modal = this.modalService.open(EditPhotoComponent);
+    this.modal = this.modalService.open(PhotoEditComponent);
     this.modal.componentInstance.setPhoto(photo);
   }
 

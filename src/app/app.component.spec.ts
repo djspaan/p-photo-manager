@@ -6,9 +6,9 @@ import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './header/search/search.component';
-import { EditPhotoComponent } from './photos/edit-photo/edit-photo.component';
-import { AlbumService } from './shared/album.service';
-import { PhotoService } from './shared/photo.service';
+import { PhotoEditComponent } from './photos/photo-edit/photo-edit.component';
+import { AlbumService } from './shared/albums/album.service';
+import { PhotoService } from './shared/photos/photo.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

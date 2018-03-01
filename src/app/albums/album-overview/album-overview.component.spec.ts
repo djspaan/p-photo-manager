@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AlbumService } from '../../shared/album.service';
-import { PhotoService } from '../../shared/photo.service';
+import { AlbumService } from '../../shared/albums/album.service';
+import { PhotoService } from '../../shared/photos/photo.service';
 
-import { AlbumOverviewComponent } from './overview.component';
+import { AlbumOverviewComponent } from './album-overview.component';
 
 describe('AlbumOverviewComponent', () => {
   let component: AlbumOverviewComponent;

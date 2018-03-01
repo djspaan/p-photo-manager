@@ -3,16 +3,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Photo } from '../../shared/photo';
-import { PhotoService } from '../../shared/photo.service';
+import { Photo } from '../../shared/photos/photo';
+import { PhotoService } from '../../shared/photos/photo.service';
 
 @Component({
   selector: 'pm-edit-photo',
-  templateUrl: './edit-photo.component.html',
-  styleUrls: [ './edit-photo.component.scss' ]
+  templateUrl: './photo-edit.component.html',
+  styleUrls: [ './photo-edit.component.scss' ]
 })
-export class EditPhotoComponent implements OnInit {
-  public editPhotoForm: FormGroup;
+export class PhotoEditComponent implements OnInit {
+  public form: FormGroup;
   public photo: Photo;
 
   constructor(public activeModal: NgbActiveModal, private photoService: PhotoService) { }
@@ -25,7 +25,7 @@ export class EditPhotoComponent implements OnInit {
     const title = this.photo ? this.photo.title : '';
     const description = this.photo ? this.photo.description : '';
     const location = this.photo ? this.photo.location : '';
-    this.editPhotoForm = new FormGroup({
+    this.form = new FormGroup({
       'title': new FormControl(title, Validators.required),
       'description': new FormControl(description, Validators.required),
       'location': new FormControl(location, Validators.required)
@@ -42,9 +42,9 @@ export class EditPhotoComponent implements OnInit {
    */
   public submitForm() {
     if (this.photo) {
-      this.photoService.update(this.photo.id, this.editPhotoForm.value);
+      this.photoService.update(this.photo.id, this.form.value);
     } else {
-      this.photoService.add(this.editPhotoForm.value);
+      this.photoService.add(this.form.value);
     }
     this.activeModal.dismiss();
   }

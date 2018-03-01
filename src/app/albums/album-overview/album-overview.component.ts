@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Album } from '../../shared/album';
-import { AlbumService } from '../../shared/album.service';
+import { Album } from '../../shared/albums/album';
+import { AlbumService } from '../../shared/albums/album.service';
 
 @Component({
   selector: 'pm-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: [ './overview.component.scss' ]
+  templateUrl: './album-overview.component.html',
+  styleUrls: [ './album-overview.component.scss' ]
 })
 export class AlbumOverviewComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
