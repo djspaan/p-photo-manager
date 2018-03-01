@@ -33,6 +33,7 @@ export class CreatePhotoComponent implements OnInit {
   }
 
   public openModal(content) {
+    this.form.reset();
     this.modal = this.modalService.open(content);
   }
 
