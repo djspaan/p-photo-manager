@@ -1,3 +1,4 @@
+// TODO: Implement this interface
 export interface Picture {
   id: number;
   title: string;

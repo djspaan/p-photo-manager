@@ -42,7 +42,7 @@ export class PhotoService {
         return photo;
       }
     }
-    return null;
+    throw new RangeError(`Photo with id ${id} not found.`);
   }
 
   getByIds(ids: number[]): Photo[] {
@@ -63,9 +63,17 @@ export class PhotoService {
     return highestId + ID_INCREMENT;
   }
 
-  add(picture: Picture): void {
-    const photo = new Photo(this.getNextId(), picture.title, picture.description, picture.location, picture.createdAt);
+  add(newPhoto: Photo): void {
+    const photo = new Photo(this.getNextId(), newPhoto.title, newPhoto.description, newPhoto.location, newPhoto.createdAt);
     this.photos.push(photo);
+    this.photosChanged.next(this.photos.slice());
+  }
+
+  update(id: number, updatedPhoto: Photo) {
+    const photo = this.getById(id);
+    photo.title = updatedPhoto.title;
+    photo.description = updatedPhoto.description;
+    photo.location = updatedPhoto.location;
     this.photosChanged.next(this.photos.slice());
   }
 
