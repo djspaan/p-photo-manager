@@ -4,6 +4,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
 
 import { PhotoService } from '../../shared/photos/photo.service';
+import { PhotoCardComponent } from '../photo-card/photo-card.component';
 
 import { PhotoOverviewComponent } from './photo-overview.component';
 
@@ -13,7 +14,7 @@ describe('PhotoOverviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoOverviewComponent ],
+      declarations: [ PhotoOverviewComponent, PhotoCardComponent ],
       providers: [ PhotoService, NgbModal, NgbModalStack ],
       imports: [ NgbModule ]
     }).compileComponents();

@@ -1,4 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
+
+import { PhotoCardComponent } from '../../photos/photo-card/photo-card.component';
+
 import { AlbumService } from '../../shared/albums/album.service';
 import { PhotoService } from '../../shared/photos/photo.service';
 
@@ -10,8 +16,9 @@ describe('AlbumOverviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlbumOverviewComponent ],
-      providers: [ AlbumService, PhotoService ]
+      declarations: [ AlbumOverviewComponent, PhotoCardComponent ],
+      providers: [ AlbumService, PhotoService, NgbModal, NgbModalStack ],
+      imports: [ NgbModule ]
     })
       .compileComponents();
   }));

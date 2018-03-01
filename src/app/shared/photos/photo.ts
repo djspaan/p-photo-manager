@@ -14,7 +14,7 @@ export class Photo implements Picture {
   public location: string;
   public createdAt: Date;
 
-  constructor(id: number, title: string, description: string, location: string, createdAt: Date = null) {
+  constructor(id: number = 0, title = '', description: string = '', location: string = '', createdAt: Date = null) {
     this.id = id;
     this.title = title;
     this.description = description;

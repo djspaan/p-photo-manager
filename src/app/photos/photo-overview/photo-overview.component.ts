@@ -13,20 +13,15 @@ import { PhotoEditComponent } from '../photo-edit/photo-edit.component';
   styleUrls: [ './photo-overview.component.scss' ]
 })
 export class PhotoOverviewComponent implements OnInit {
-  private modal: NgbModalRef;
   private subscription: Subscription;
   public photos: Photo[];
 
-  constructor(private modalService: NgbModal, private photoService: PhotoService) { }
+  constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
     this.subscription = this.photoService.photosChanged.subscribe((photos: Photo[]) => { this.photos = photos; });
     this.photos = this.photoService.getPhotos();
   }
 
-  public openEditPhotoModal(photo: Photo) {
-    this.modal = this.modalService.open(PhotoEditComponent);
-    this.modal.componentInstance.setPhoto(photo);
-  }
 
 }
