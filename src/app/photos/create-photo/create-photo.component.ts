@@ -24,7 +24,6 @@ export class CreatePhotoComponent implements OnInit {
     const title = '';
     const description = '';
     const location = '';
-
     this.form = new FormGroup({
       'title': new FormControl(title, Validators.required),
       'description': new FormControl(description, Validators.required),
