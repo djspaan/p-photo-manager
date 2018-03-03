@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4" *ngFor="let photo of album.photos">
-            <pm-photo-card [photo]="photoService.getById(photo)"></pm-photo-card>
+            <pm-photo-card [photo]="photo"></pm-photo-card>
           </div>
         </div>
       </div>

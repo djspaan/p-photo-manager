@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { AlbumService } from '../../shared/albums/album.service';
 import { PhotoService } from '../../shared/photos/photo.service';
 
 import { PhotoEditComponent } from './photo-edit.component';
@@ -16,7 +17,7 @@ describe('PhotoEditComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PhotoEditComponent ],
       imports: [ FormsModule, ReactiveFormsModule, HttpClientTestingModule ],
-      providers: [ NgbActiveModal, PhotoService ]
+      providers: [ AlbumService, NgbActiveModal, PhotoService ]
     })
       .compileComponents();
   }));

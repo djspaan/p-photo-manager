@@ -9,21 +9,29 @@ import { Searchable } from '../searchable';
 
 @Injectable()
 export class AlbumService implements Searchable {
-  public albumsChanged = new Subject<Album[]>();
+  public subject = new Subject<Album[]>();
   private albums: Album[] = [];
-  private albumsUrl = 'api/albums';
+  private url = 'api/albums';
 
   constructor(private http: HttpClient) {
     this.init();
   }
 
   init(): void {
-    this.http.get<Album[]>(this.albumsUrl).subscribe((albums: Album[]) => this.albums = albums);
-    // this.albumsChanged.next(this.albums);
+    this.refresh();
+  }
+
+  refresh(): void {
+    console.log('albums refreshed');
+    this.http.get<Album[]>(this.url).subscribe((albums: Album[]) => { this.albums = albums; this.subject.next(albums); });
+  }
+
+  all(): Observable<Album[]> {
+    return this.http.get<Album[]>(this.url);
   }
 
   getAlbums(): Observable<Album[]> {
-    return this.http.get<Album[]>(this.albumsUrl);
+    return this.http.get<Album[]>(this.url);
   }
 
   search(query: string): void {
@@ -33,6 +41,6 @@ export class AlbumService implements Searchable {
         matchingAlbums.push(album);
       }
     }
-    this.albumsChanged.next(matchingAlbums);
+    this.subject.next(matchingAlbums);
   }
 }

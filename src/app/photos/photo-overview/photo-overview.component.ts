@@ -17,8 +17,8 @@ export class PhotoOverviewComponent implements OnInit, OnDestroy {
   constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.subscription = this.photoService.photosChanged.subscribe((photos: Photo[]) => { this.photos = photos; });
-    this.photoService.getPhotos().subscribe((photos: Photo[]) => this.photos = photos);
+    this.subscription = this.photoService.subject.subscribe((photos: Photo[]) => { this.photos = photos; });
+    this.photoService.all().subscribe((photos: Photo[]) => this.photos = photos);
   }
 
   ngOnDestroy() {

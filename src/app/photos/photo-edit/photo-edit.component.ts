@@ -38,13 +38,14 @@ export class PhotoEditComponent implements OnInit {
   }
 
   /**
-   * On submit add the created photo to the service.
+   * On submit create the created photo to the service.
    */
   public submitForm() {
     if (this.photo) {
-      this.photoService.update(this.photo.id, this.form.value);
+      this.form.value.id = this.photo.id;
+      this.photoService.update(this.form.value);
     } else {
-      this.photoService.add(this.form.value);
+      this.photoService.create(this.form.value);
     }
     this.activeModal.dismiss();
   }
