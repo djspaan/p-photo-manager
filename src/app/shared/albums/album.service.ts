@@ -1,30 +1,29 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
 import { Subject } from 'rxjs/Subject';
 
 import { Album } from './album';
-import { PhotoService } from '../photos/photo.service';
 import { Searchable } from '../searchable';
 
 @Injectable()
 export class AlbumService implements Searchable {
-  albumsChanged = new Subject<Album[]>();
-  private albums: Album[];
+  public albumsChanged = new Subject<Album[]>();
+  private albums: Album[] = [];
+  private albumsUrl = 'api/albums';
 
-  constructor(private photoService: PhotoService) {
-    this.initializeAlbums();
+  constructor(private http: HttpClient) {
+    this.init();
   }
 
-  initializeAlbums(): void {
-    this.albums = [
-      new Album(1, 'Lloret de Mar', 'Vakantie in Lloret', this.photoService.getByIds([ 1, 2, 3 ])),
-      new Album(2, 'Alanya', 'Vakantie in Alanya', this.photoService.getByIds([ 4, 5, 6 ])),
-      new Album(3, 'Lloret de Mar', 'Vakantie in Lloret', this.photoService.getByIds([ 7, 8, 9 ]))
-    ];
-    this.albumsChanged.next(this.albums);
+  init(): void {
+    this.http.get<Album[]>(this.albumsUrl).subscribe((albums: Album[]) => this.albums = albums);
+    // this.albumsChanged.next(this.albums);
   }
 
-  getAlbums(): Album[] {
-    return this.albums.slice();
+  getAlbums(): Observable<Album[]> {
+    return this.http.get<Album[]>(this.albumsUrl);
   }
 
   search(query: string): void {

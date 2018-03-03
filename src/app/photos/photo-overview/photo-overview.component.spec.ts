@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
 
 import { PhotoService } from '../../shared/photos/photo.service';
-import { PhotoCardComponent } from '../photo-card/photo-card.component';
 
+import { PhotoCardComponent } from '../photo-card/photo-card.component';
 import { PhotoOverviewComponent } from './photo-overview.component';
 
 describe('PhotoOverviewComponent', () => {
@@ -16,7 +17,7 @@ describe('PhotoOverviewComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PhotoOverviewComponent, PhotoCardComponent ],
       providers: [ PhotoService, NgbModal, NgbModalStack ],
-      imports: [ NgbModule ]
+      imports: [ NgbModule, HttpClientTestingModule ]
     }).compileComponents();
   }));
 

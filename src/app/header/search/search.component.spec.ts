@@ -1,6 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { AlbumService } from '../../shared/albums/album.service';
 import { PhotoService } from '../../shared/photos/photo.service';
 
@@ -17,7 +19,8 @@ describe('SearchComponent', () => {
         AlbumService,
         PhotoService,
         {provide: Router, useClass: RouterTestingModule}
-      ]
+      ],
+      imports: [ HttpClientTestingModule ]
     }).compileComponents();
   }));
 

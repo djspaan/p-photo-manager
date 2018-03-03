@@ -5,6 +5,8 @@ export interface Picture {
   description: string;
   location: string;
   createdAt?: Date;
+
+  getFormattedCreatedAt(): string;
 }
 
 export class Photo implements Picture {
@@ -12,17 +14,17 @@ export class Photo implements Picture {
   public title: string;
   public description: string;
   public location: string;
-  public createdAt: Date;
+  public createdAt: Date = new Date();
 
   constructor(id: number = 0, title = '', description: string = '', location: string = '', createdAt: Date = null) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.location = location;
-    this.createdAt = new Date();
+    this.createdAt = createdAt || this.createdAt;
   }
 
-  getFormattedCreatedAt(): string {
+  public getFormattedCreatedAt(): string {
     return this.createdAt.toDateString();
   }
 }

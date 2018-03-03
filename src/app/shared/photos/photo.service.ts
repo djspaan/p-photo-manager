@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
 import { Subject } from 'rxjs/Subject';
 
-import { Photo, Picture } from './photo';
+import { Photo } from './photo';
 
 const ID_START = 1;
 const ID_INCREMENT = 1;
@@ -9,31 +12,37 @@ const ID_INCREMENT = 1;
 @Injectable()
 export class PhotoService {
   public photosChanged = new Subject<Photo[]>();
-  private photos: Photo[];
+  private photos: Photo[] = [];
+  private photosUrl = 'api/photos';
 
-  constructor() {
-    this.photos = [
-      new Photo(1, 'Testfoto 1', 'Dit is de eerste testfoto',
-        'http://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Destinations/Grenada/20555084_480x480.jpg'),
-      new Photo(2, 'Testfoto 2', 'Dit is de tweede testfoto',
-        'http://media.fclmedia.com/global-images/fc/holidays/tiles/bali/bali-family-experience-large-476x332.jpg'),
-      new Photo(3, 'Testfoto 3', 'Dit is de derde testfoto', 'http://www.destination360.com/travel/beaches/images/s/beach-holidays.jpg'),
-      new Photo(4, 'Testfoto 1', 'Dit is de eerste testfoto',
-        'http://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Destinations/Grenada/20555084_480x480.jpg'),
-      new Photo(5, 'Testfoto 2', 'Dit is de tweede testfoto',
-        'http://media.fclmedia.com/global-images/fc/holidays/tiles/bali/bali-family-experience-large-476x332.jpg'),
-      new Photo(6, 'Testfoto 3', 'Dit is de derde testfoto', 'http://www.destination360.com/travel/beaches/images/s/beach-holidays.jpg'),
-      new Photo(7, 'Testfoto 1', 'Dit is de eerste testfoto',
-        'http://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Destinations/Grenada/20555084_480x480.jpg'),
-      new Photo(8, 'Testfoto 2', 'Dit is de tweede testfoto',
-        'http://media.fclmedia.com/global-images/fc/holidays/tiles/bali/bali-family-experience-large-476x332.jpg'),
-      new Photo(9, 'Testfoto 3', 'Dit is de derde testfoto', 'http://www.destination360.com/travel/beaches/images/s/beach-holidays.jpg')
-    ];
-    this.photosChanged.next(this.photos.slice());
+  constructor(private http: HttpClient) {
+    // this.photos = [
+    //   new Photo(1, 'Testfoto 1', 'Dit is de eerste testfoto',
+    //     'http://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Destinations/Grenada/20555084_480x480.jpg'),
+    //   new Photo(2, 'Testfoto 2', 'Dit is de tweede testfoto',
+    //     'http://media.fclmedia.com/global-images/fc/holidays/tiles/bali/bali-family-experience-large-476x332.jpg'),
+    //   new Photo(3, 'Testfoto 3', 'Dit is de derde testfoto', 'http://www.destination360.com/travel/beaches/images/s/beach-holidays.jpg'),
+    //   new Photo(4, 'Testfoto 1', 'Dit is de eerste testfoto',
+    //     'http://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Destinations/Grenada/20555084_480x480.jpg'),
+    //   new Photo(5, 'Testfoto 2', 'Dit is de tweede testfoto',
+    //     'http://media.fclmedia.com/global-images/fc/holidays/tiles/bali/bali-family-experience-large-476x332.jpg'),
+    //   new Photo(6, 'Testfoto 3', 'Dit is de derde testfoto', 'http://www.destination360.com/travel/beaches/images/s/beach-holidays.jpg'),
+    //   new Photo(7, 'Testfoto 1', 'Dit is de eerste testfoto',
+    //     'http://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Destinations/Grenada/20555084_480x480.jpg'),
+    //   new Photo(8, 'Testfoto 2', 'Dit is de tweede testfoto',
+    //     'http://media.fclmedia.com/global-images/fc/holidays/tiles/bali/bali-family-experience-large-476x332.jpg'),
+    //   new Photo(9, 'Testfoto 3', 'Dit is de derde testfoto', 'http://www.destination360.com/travel/beaches/images/s/beach-holidays.jpg')
+    // ];
+    // this.photosChanged.next(this.photos.slice());
+    this.init();
   }
 
-  getPhotos(): Photo[] {
-    return this.photos.slice();
+  init(): void {
+    this.http.get<Photo[]>(this.photosUrl).subscribe((photos: Photo[]) => this.photos = photos);
+  }
+
+  getPhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>(this.photosUrl);
   }
 
   getById(id: number): Photo {

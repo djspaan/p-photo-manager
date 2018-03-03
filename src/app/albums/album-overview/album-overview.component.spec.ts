@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
@@ -18,7 +19,7 @@ describe('AlbumOverviewComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AlbumOverviewComponent, PhotoCardComponent ],
       providers: [ AlbumService, PhotoService, NgbModal, NgbModalStack ],
-      imports: [ NgbModule ]
+      imports: [ NgbModule, HttpClientTestingModule ]
     })
       .compileComponents();
   }));

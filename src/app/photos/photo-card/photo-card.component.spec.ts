@@ -15,7 +15,7 @@ describe('PhotoCardComponent', () => {
       providers: [ NgbModal, NgbModalStack ],
       imports: [ NgbModule ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

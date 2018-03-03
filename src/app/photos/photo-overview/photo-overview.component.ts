@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 import { Photo } from '../../shared/photos/photo';
 import { PhotoService } from '../../shared/photos/photo.service';
-import { PhotoEditComponent } from '../photo-edit/photo-edit.component';
 
 @Component({
   selector: 'pm-overview',
   templateUrl: './photo-overview.component.html',
   styleUrls: [ './photo-overview.component.scss' ]
 })
-export class PhotoOverviewComponent implements OnInit {
+export class PhotoOverviewComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   public photos: Photo[];
 
@@ -20,8 +18,10 @@ export class PhotoOverviewComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.photoService.photosChanged.subscribe((photos: Photo[]) => { this.photos = photos; });
-    this.photos = this.photoService.getPhotos();
+    this.photoService.getPhotos().subscribe((photos: Photo[]) => this.photos = photos);
   }
 
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
