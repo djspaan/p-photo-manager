@@ -1,4 +1,4 @@
-// TODO: Implement this interface
+// TODO: Implement this interface application wide
 export interface Picture {
   id: number;
   title: string;

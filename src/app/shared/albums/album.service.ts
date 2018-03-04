@@ -22,7 +22,6 @@ export class AlbumService implements Searchable {
   }
 
   refresh(): void {
-    console.log('albums refreshed');
     this.http.get<Album[]>(this.url).subscribe((albums: Album[]) => { this.albums = albums; this.subject.next(albums); });
   }
 

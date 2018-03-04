@@ -33,4 +33,8 @@ describe('AlbumOverviewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display albums', () => {
+
+  });
 });

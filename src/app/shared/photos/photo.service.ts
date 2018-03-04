@@ -36,11 +36,10 @@ export class PhotoService {
       this.subject.next(photos);
     });
     // Refresh the albums, so the photos of the albums are updated. DOES NOT WORK WITH FAKE HTTP!
-    this.albumService.refresh();
+    // this.albumService.refresh();
   }
 
   all(): Observable<Photo[]> {
-    console.log('photos refreshed');
     return this.http.get<Photo[]>(this.url);
   }
 
