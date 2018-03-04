@@ -66,7 +66,7 @@ export class PhotoService {
   }
 
   create(newPhoto: Photo): void {
-    const photo = new Photo(this.getNextId(), newPhoto.title, newPhoto.description, newPhoto.location, newPhoto.createdAt);
+    const photo = new Photo(this.getNextId(), newPhoto.title, newPhoto.description, newPhoto.location);
     this.http.post<Photo>(this.url, photo, httpOptions).subscribe(() => this.refresh());
   }
 

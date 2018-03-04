@@ -4,12 +4,14 @@ export class Album {
   public id: number;
   public name: string;
   public description: string;
-  public photos: Photo[];
+  public photos: Photo[] = [];
 
   constructor(id: number, name: string, description: string, photos: Photo[]) {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.photos = photos;
+    for (const photo of photos) {
+      this.photos.push(new Photo(photo.id, photo.title, photo.description, photo.location, photo.createdAt));
+    }
   }
 }

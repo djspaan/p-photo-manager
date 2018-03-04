@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
+import { Album } from '../../shared/albums/album';
 
 import { Photo } from '../../shared/photos/photo';
 import { PhotoService } from '../../shared/photos/photo.service';
@@ -12,13 +13,22 @@ import { PhotoService } from '../../shared/photos/photo.service';
 })
 export class PhotoOverviewComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
-  public photos: Photo[];
+  public photos: Photo[] = [];
 
   constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.subscription = this.photoService.subject.subscribe((photos: Photo[]) => { this.photos = photos; });
-    this.photoService.all().subscribe((photos: Photo[]) => this.photos = photos);
+    // TODO: Refactor so only one subscription is needed.
+    this.subscription = this.photoService.subject.subscribe((photos: Photo[]) => {
+      for (const photo of photos) {
+        this.photos.push(new Photo(photo.id, photo.title, photo.description, photo.location));
+      }
+    });
+    this.photoService.all().subscribe((photos: Photo[]) => {
+      for (const photo of photos) {
+        this.photos.push(new Photo(photo.id, photo.title, photo.description, photo.location));
+      }
+    });
   }
 
   ngOnDestroy() {

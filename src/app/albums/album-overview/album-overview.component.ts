@@ -13,13 +13,22 @@ import { PhotoService } from '../../shared/photos/photo.service';
 })
 export class AlbumOverviewComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
-  public albums: Album[];
+  public albums: Album[] = [];
 
   constructor(private albumService: AlbumService) { }
 
   ngOnInit(): void {
-    this.subscription = this.albumService.subject.subscribe((albums: Album[]) => this.albums = albums);
-    this.albumService.all().subscribe((albums: Album[]) => this.albums = albums);
+    // TODO: Refactor so only one subscription is needed.
+    this.subscription = this.albumService.subject.subscribe((albums: Album[]) => {
+      for (const album of albums) {
+        this.albums.push(new Album(album.id, album.name, album.description, album.photos));
+      }
+    });
+    this.albumService.all().subscribe((albums: Album[]) => {
+      for (const album of albums) {
+        this.albums.push(new Album(album.id, album.name, album.description, album.photos));
+      }
+    });
   }
 
   ngOnDestroy(): void {
