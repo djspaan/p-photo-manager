@@ -31,16 +31,23 @@ describe('PhotoCardComponent', () => {
 
   it('should display the title', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('p.card-text')[0].textContent).toContain(component.photo.title);
+    expect(compiled.querySelectorAll('p.card-text')[ 0 ].textContent).toContain(component.photo.title);
   });
 
   it('should display the description', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('p.card-text')[1].textContent).toContain(component.photo.description);
+    expect(compiled.querySelectorAll('p.card-text')[ 1 ].textContent).toContain(component.photo.description);
   });
 
   it('should display the image', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('img.card-img-top').src).toContain(component.photo.location);
   });
+
+  it('should display the date created', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('small.text-muted').textContent).toContain(component.photo.getFormattedCreatedAt());
+  });
+
+  // TODO: Test to check if the edit modal opens.
 });
