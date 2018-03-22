@@ -1,10 +1,10 @@
 import { Photo } from '../photos/photo';
 
 export class Album {
-  public id: number;
-  public name: string;
-  public description: string;
-  public photos: Photo[] = [];
+  public id?: number;
+  public name = '';
+  public description = '';
+  public photos?: Photo[] = [];
 
   constructor(id: number, name: string, description: string, photos: Photo[] = []) {
     this.id = id;

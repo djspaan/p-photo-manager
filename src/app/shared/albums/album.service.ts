@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Subject } from 'rxjs/Subject';
-import { Photo } from '../photos/photo';
 
 import { Album } from './album';
 import { Searchable } from '../searchable';

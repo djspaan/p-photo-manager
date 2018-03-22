@@ -29,4 +29,8 @@ describe('AlbumEditComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#submitForm should call #create on the album service', () => {
+    // TODO
+  });
 });
