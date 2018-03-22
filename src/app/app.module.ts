@@ -16,6 +16,7 @@ import { PhotoService } from './shared/photos/photo.service';
 import { SearchComponent } from './header/search/search.component';
 import { PhotoEditComponent } from './photos/photo-edit/photo-edit.component';
 import { PhotoCardComponent } from './photos/photo-card/photo-card.component';
+import { AlbumEditComponent } from './albums/album-edit/album-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { PhotoCardComponent } from './photos/photo-card/photo-card.component';
     PhotoOverviewComponent,
     SearchComponent,
     PhotoEditComponent,
-    PhotoCardComponent
+    PhotoCardComponent,
+    AlbumEditComponent
   ],
-  entryComponents: [ PhotoEditComponent ],
+  entryComponents: [ AlbumEditComponent, PhotoEditComponent ],
   imports: [
     AppRoutingModule,
     BrowserModule,

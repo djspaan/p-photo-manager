@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ this.album ? 'Edit ' + this.album.name : 'Add a new album' }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" #name>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" id="description" class="form-control" formControlName="description" #description>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Cancel</button>
+    <button class="btn btn-outline-primary" [disabled]="!form.valid">Submit</button>
+  </div>
+</form>
+

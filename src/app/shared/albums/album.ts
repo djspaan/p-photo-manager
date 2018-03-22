@@ -6,7 +6,7 @@ export class Album {
   public description: string;
   public photos: Photo[] = [];
 
-  constructor(id: number, name: string, description: string, photos: Photo[]) {
+  constructor(id: number, name: string, description: string, photos: Photo[] = []) {
     this.id = id;
     this.name = name;
     this.description = description;

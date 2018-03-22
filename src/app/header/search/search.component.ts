@@ -18,6 +18,8 @@ export class SearchComponent implements OnInit {
   onSearch() {
     const query = this.searchInput.nativeElement.value;
 
+    console.log(query);
+
     switch (this.router.url) {
       case '/albums/overview':
         this.albumService.search(query);

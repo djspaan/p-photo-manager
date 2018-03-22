@@ -20,6 +20,7 @@ export class AlbumOverviewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // TODO: Refactor so only one subscription is needed.
     this.subscription = this.albumService.subject.subscribe((albums: Album[]) => {
+      this.albums = [];
       for (const album of albums) {
         this.albums.push(new Album(album.id, album.name, album.description, album.photos));
       }
